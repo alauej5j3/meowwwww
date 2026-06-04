@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍽️ 隨機餐點組合生成器</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 標題 -->
+        <header class="header">
+            <h1>🍽️ 隨機餐點組合生成器</h1>
+            <p class="subtitle">一鍵生成您今天的完美三餐組合</p>
+        </header>
+
+        <!-- 主要內容區域 -->
+        <main class="main-content">
+            <!-- 左側：使用者偏好設置 -->
+            <aside class="preferences-panel">
+                <h2>🎯 您的飲食偏好</h2>
+                
+                <!-- 飲食限制 -->
+                <div class="preference-section">
+                    <h3>飲食限制</h3>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="restriction" value="素食"> 素食（無肉/海鮮）</label>
+                        <label><input type="checkbox" name="restriction" value="全素"> 全素（無肉/蛋/奶）</label>
+                        <label><input type="checkbox" name="restriction" value="無麩質"> 無麩質</label>
+                        <label><input type="checkbox" name="restriction" value="低碳水"> 低碳水</label>
+                        <label><input type="checkbox" name="restriction" value="無乳製品"> 無乳製品</label>
+                    </div>
+                </div>
+
+                <!-- 口味偏好 -->
+                <div class="preference-section">
+                    <h3>口味偏好</h3>
+                    <div class="radio-group">
+                        <label><input type="radio" name="taste" value="重口味"> 重口味</label>
+                        <label><input type="radio" name="taste" value="中等"> 中等</label>
+                        <label><input type="radio" name="taste" value="清淡"> 清淡</label>
+                    </div>
+                </div>
+
+                <!-- 過敏食物 -->
+                <div class="preference-section">
+                    <h3>過敏/禁忌食物</h3>
+                    <div class="input-group">
+                        <input 
+                            type="text" 
+                            id="allergies" 
+                            placeholder="例如：海鮮、堅果、雞蛋（以逗號分隔）"
+                            class="text-input"
+                        >
+                    </div>
+                </div>
+
+                <!-- 其他偏好 -->
+                <div class="preference-section">
+                    <h3>其他偏好</h3>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="other" value="健身餐"> 健身餐</label>
+                        <label><input type="checkbox" name="other" value="低熱量"> 低熱量</label>
+                        <label><input type="checkbox" name="other" value="快手餐"> 快手餐</label>
+                        <label><input type="checkbox" name="other" value="高蛋白"> 高蛋白</label>
+                    </div>
+                </div>
+
+                <!-- 使用者需求 -->
+                <div class="preference-section">
+                    <h3>使用者需求 / 備註</h3>
+                    <div class="input-group">
+                        <textarea id="userNote" rows="4" placeholder="請先輸入您的需求，例如：想吃台式、避免油膩、希望全素或低卡" class="text-input"></textarea>
+                    </div>
+                </div>
+
+                <!-- 保存和清除按鈕 -->
+                <div class="button-group">
+                    <button id="savePrefs" class="btn btn-primary">💾 保存偏好</button>
+                    <button id="resetPrefs" class="btn btn-secondary">🔄 重置</button>
+                </div>
+            </aside>
+
+            <!-- 右側：生成結果 -->
+            <section class="results-panel">
+                <div class="results-header">
+                    <h2>📋 今日食譜</h2>
+                    <button id="generateBtn" class="btn btn-generate">✨ 生成新組合</button>
+                </div>
+
+                <!-- 生成結果顯示 -->
+                <div id="resultsContainer" class="results-container">
+                    <div class="empty-state">
+                        <p>按下「生成新組合」按鈕來開始！</p>
+                    </div>
+                </div>
+
+                <!-- 歷史記錄 -->
+                <div class="history-section">
+                    <h3>📜 最近生成的組合</h3>
+                    <div id="historyContainer" class="history-list">
+                        <p class="empty">暫無記錄</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 狀態指示 -->
+        <footer class="footer">
+            <p id="status" class="status">準備就緒 ✓</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

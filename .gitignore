@@ -1,0 +1,62 @@
+# 系統文件
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# 編輯器文件
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Node.js (如果未來使用)
+node_modules/
+npm-debug.log
+package-lock.json
+
+# Python (部署腳本)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+
+# 環境變量
+.env
+.env.local
+.env.*.local
+
+# 構建和分發
+dist/
+build/
+*.egg-info/
+
+# 日誌文件
+*.log
+logs/
+
+# 瀏覽器測試
+test-results/
+*.screenshot.png
+
+# IDE
+.classpath
+.project
+.c9/
+*.launch
+.settings/
+
+# Google Apps Script
+*.gs~
+clasp.json
+
+# OS 特定
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
