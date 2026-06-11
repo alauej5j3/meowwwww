@@ -108,6 +108,12 @@ SPREADSHEET_ID = 'your-sheet-id-here'
 CONFIG.GAS_URL = 'https://script.google.com/macros/d/{YOUR_DEPLOYMENT_ID}/usercontent'
 ```
 
+#### 3️⃣-1️⃣ 餐點管理頁面
+
+1. 開啟 `admin.html`
+2. 將 `admin.js` 中 `CONFIG.GAS_URL` 更新為您部署的 Apps Script 網頁應用 URL
+3. 在管理頁面輸入餐點類型、名稱、描述與標籤，按下「新增餐點」即可儲存到 Google Sheets
+
 #### 4️⃣ 上傳到 GitHub
 
 ```bash

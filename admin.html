@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍽️ 餐點管理頁面</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🍽️ 餐點管理頁面</h1>
+            <p class="subtitle">新增餐點項目到 Google Sheets 餐點列表</p>
+            <div class="nav-links">
+                <a class="btn btn-secondary" href="index.html">返回生成頁面</a>
+            </div>
+        </header>
+
+        <main class="main-content admin-page">
+            <section class="preferences-panel admin-form">
+                <h2>🛠️ 新增餐點</h2>
+                <div class="preference-section">
+                    <label for="mealType"><strong>餐點類型</strong></label>
+                    <select id="mealType" class="text-input">
+                        <option value="早餐">早餐</option>
+                        <option value="午餐">午餐</option>
+                        <option value="晚餐">晚餐</option>
+                    </select>
+                </div>
+                <div class="preference-section">
+                    <label for="mealName"><strong>餐點名稱</strong></label>
+                    <input id="mealName" type="text" class="text-input" placeholder="例如：番茄牛肉義大利麵">
+                </div>
+                <div class="preference-section">
+                    <label for="mealDescription"><strong>餐點描述</strong></label>
+                    <textarea id="mealDescription" rows="4" class="text-input" placeholder="例如：濃郁番茄醬搭配嫩牛肉"></textarea>
+                </div>
+                <div class="preference-section">
+                    <label for="mealTags"><strong>標籤（逗號分隔）</strong></label>
+                    <input id="mealTags" type="text" class="text-input" placeholder="例如：西式,含牛肉,飽足">
+                </div>
+                <div class="button-group admin-buttons">
+                    <button id="addMealBtn" class="btn btn-primary">＋ 新增餐點</button>
+                    <button id="clearMealFormBtn" class="btn btn-secondary">清空欄位</button>
+                </div>
+                <p id="adminStatus" class="admin-status">填寫完整後按「新增餐點」，資料會存入 Google Sheets。</p>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p class="status">管理頁面</p>
+        </footer>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

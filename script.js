@@ -513,7 +513,7 @@ async function uploadPreferencesToSheets() {
     }
 }
 
-// ==================== 狀態指示 ====================
+// ==================== 狀態指示 ==================
 function updateStatus(message, type = 'normal') {
     elements.statusElement.textContent = message;
     elements.statusElement.classList.remove('loading', 'error');

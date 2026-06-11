@@ -16,10 +16,28 @@ const SHEET_NAMES = {
   HISTORY: '生成歷史'
 };
 
-const SPREADSHEET_ID = ''; // 替換為您的 Google Sheet ID
+const SPREADSHEET_ID = ''; // 可選：直接在此處填入 Google Sheet ID
 
+/**
+ * 取得 Spreadsheet 實例：
+ * - 若在代碼中直接填寫 `SPREADSHEET_ID`，使用該 ID
+ * - 否則嘗試從 Script Properties (鍵名 SPREADSHEET_ID) 讀取
+ * - 若仍無，則回退到當前專案關聯的活躍試算表
+ */
 function getSpreadsheet() {
-  return SPREADSHEET_ID ? SpreadsheetApp.openById(SPREADSHEET_ID) : SpreadsheetApp.getActiveSpreadsheet();
+  const propId = PropertiesService.getScriptProperties().getProperty('SPREADSHEET_ID');
+  const id = SPREADSHEET_ID || propId;
+  return id ? SpreadsheetApp.openById(id) : SpreadsheetApp.getActiveSpreadsheet();
+}
+
+/**
+ * 在腳本屬性中儲存 Spreadsheet ID（從 Apps Script 編輯器執行一次）
+ * 範例：setSpreadsheetId('1Abc...')
+ */
+function setSpreadsheetId(id) {
+  if (!id || typeof id !== 'string') throw new Error('請提供有效的 Spreadsheet ID 字串');
+  PropertiesService.getScriptProperties().setProperty('SPREADSHEET_ID', id);
+  return sendResponse(true, null, {message: 'SPREADSHEET_ID 已設定'});
 }
 
 // ==================== 初始化 ====================
@@ -177,6 +195,8 @@ function doPost(e) {
         return saveMeals(payload.data);
       case 'savePreferences':
         return savePreferences(payload.data);
+      case 'saveMeal':
+        return saveMeal(payload.data);
       default:
         return sendResponse(false, 'Invalid action');
     }
@@ -256,6 +276,22 @@ function saveMeals(data) {
     sheet.appendRow(row);
     
     return sendResponse(true, '已保存到 Google Sheets');
+  } catch (error) {
+    return sendResponse(false, error.toString());
+  }
+}
+
+function saveMeal(data) {
+  const ss = getSpreadsheet();
+  const sheet = ss.getSheetByName(SHEET_NAMES.MEALS);
+  
+  if (!sheet) {
+    return sendResponse(false, '餐點列表工作表不存在');
+  }
+  
+  try {
+    sheet.appendRow([data.type, data.name, data.description, data.tags, new Date()]);
+    return sendResponse(true, '餐點已新增');
   } catch (error) {
     return sendResponse(false, error.toString());
   }
