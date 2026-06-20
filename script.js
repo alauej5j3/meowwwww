@@ -66,10 +66,6 @@ async function generateMeals() {
     console.log('生成餐點中...');
     
     savePreferences();
-    if (!appState.preferences.userNote || appState.preferences.userNote.trim() === '') {
-        updateStatus('請先輸入您的需求或備註，再生成組合。', 'error');
-        return;
-    }
     
     updateStatus('正在生成您的完美三餐組合...', 'loading');
     elements.generateBtn.disabled = true;
@@ -124,12 +120,18 @@ async function fetchMealsFromAPI() {
             throw new Error(data.error || '無法獲取餐點數據');
         }
         
+        const mealsData = data.data || {};
+        
         // 篩選符合用戶偏好的餐點
         const meals = {
-            breakfast: selectRandomMeal(data.breakfast, 'breakfast'),
-            lunch: selectRandomMeal(data.lunch, 'lunch'),
-            dinner: selectRandomMeal(data.dinner, 'dinner')
+            breakfast: selectRandomMeal(mealsData.breakfast, 'breakfast'),
+            lunch: selectRandomMeal(mealsData.lunch, 'lunch'),
+            dinner: selectRandomMeal(mealsData.dinner, 'dinner')
         };
+        
+        if (!meals.breakfast || !meals.lunch || !meals.dinner) {
+            throw new Error('未能生成完整的餐點組合');
+        }
         
         return meals;
         

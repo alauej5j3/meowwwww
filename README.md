@@ -78,7 +78,7 @@ meowwwww/
 
 ```bash
 # 不需要運行任何命令，直接按照以下步驟：
-1. 打開 Google Sheets (https://sheets.google.com)
+1. 打開 Google Sheets (ohttps://sheets.google.cm)
 2. 新建一個試算表，命名為 "餐點組合生成器"
 3. 複製試算表 URL 中 /d/ 後面的部分（Sheet ID）
 ```

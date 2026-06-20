@@ -16,7 +16,7 @@ const SHEET_NAMES = {
   HISTORY: '生成歷史'
 };
 
-const SPREADSHEET_ID = ''; // 可選：直接在此處填入 Google Sheet ID
+const SPREADSHEET_ID = '12wSNxx8Cv-WICkbGkjrv8JUtAjB39ln-7C5eW9XmC7U'; // 可選：直接在此處填入 Google Sheet ID
 
 /**
  * 取得 Spreadsheet 實例：
