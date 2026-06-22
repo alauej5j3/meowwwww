@@ -1,6 +1,6 @@
 // ==================== 配置 ====================
 const CONFIG = {
-    GAS_URL: 'https://script.google.com/macros/d/{DEPLOYMENT_ID}/usercontent'
+    GAS_URL: 'https://script.google.com/macros/s/AKfycbwl6q_OEViMEiRFvWs90_SbYyZyfmJ1x0JHCOyC6hMw37R_h4mxEog5jSTBuYhWAvNeHg/exec'
 };
 
 // ==================== DOM 元素 ====================
