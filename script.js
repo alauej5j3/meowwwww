@@ -1,7 +1,7 @@
 // ==================== 配置 ====================
 const CONFIG = {
     // 修改此 URL 為您的 Google Apps Script 部署 URL
-    GAS_URL: 'https://script.google.com/macros/d/{DEPLOYMENT_ID}/usercontent',
+    GAS_URL: 'https://script.google.com/macros/s/AKfycbwl6q_OEViMEiRFvWs90_SbYyZyfmJ1x0JHCOyC6hMw37R_h4mxEog5jSTBuYhWAvNeHg/exec',
     HISTORY_KEY: 'mealHistory',
     PREFERENCES_KEY: 'mealPreferences'
 };
@@ -48,11 +48,20 @@ function initializeApp() {
     // 載入歷史記錄
     loadHistory();
     
+    // 如果有先前生成過的記錄，直接顯示最新一筆結果
+    if (appState.history.length > 0) {
+        appState.currentMeals = appState.history[0].meals;
+        displayMeals(appState.currentMeals);
+        updateStatus('已載入上次生成結果。', 'normal');
+    }
+    
     // 綁定事件監聽器
     bindEventListeners();
     
-    // 顯示歡迎訊息
-    updateStatus('準備就緒 ✓', 'normal');
+    // 顯示歡迎訊息（若無歷史結果則保持預設提示）
+    if (appState.history.length === 0) {
+        updateStatus('準備就緒 ✓', 'normal');
+    }
 }
 
 function bindEventListeners() {
