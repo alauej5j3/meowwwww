@@ -1,7 +1,7 @@
 // ==================== 配置 ====================
 const CONFIG = {
     // 修改此 URL 為您的 Google Apps Script 部署 URL
-    GAS_URL: 'https://script.google.com/macros/s/AKfycbwl6q_OEViMEiRFvWs90_SbYyZyfmJ1x0JHCOyC6hMw37R_h4mxEog5jSTBuYhWAvNeHg/exec',
+    GAS_URL: 'https://script.google.com/macros/s/AKfycbzRYxtm71J3IiWRkNa34ZV4yB_YxSrlDlCdj82YSC_XpgIH633IQlL1fVIi3pJwwVmcyA/exec',
     HISTORY_KEY: 'mealHistory',
     PREFERENCES_KEY: 'mealPreferences'
 };
