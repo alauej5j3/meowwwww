@@ -483,9 +483,6 @@ async function saveMealsToSheets(meals) {
         
         const response = await fetch(CONFIG.GAS_URL, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
             body: JSON.stringify(payload)
         });
         
@@ -508,9 +505,6 @@ async function uploadPreferencesToSheets() {
         
         const response = await fetch(CONFIG.GAS_URL, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
             body: JSON.stringify(payload)
         });
         

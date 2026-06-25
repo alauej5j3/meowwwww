@@ -50,9 +50,6 @@ async function addNewMeal(event) {
     try {
         const response = await fetch(CONFIG.GAS_URL, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
             body: JSON.stringify(payload)
         });
 
